@@ -113,14 +113,8 @@ public class MovingObject : MonoBehaviour
     void Start()
     {
         targetSpeed = maxSpeed;
-        if (paths == null)
+        if (paths != null)  // A path is assigned to it, calculated the trajectory.
         {
-            Debug.Log("Error: No path has been assigned to the script MovingObject of " + this.name);
-            gameObject.SetActive(false);
-        }
-        else
-        {
-
             switch (objType)
             {
                 case ObjTypeA.Human:
@@ -151,11 +145,13 @@ public class MovingObject : MonoBehaviour
             //calculating the ratio of the curve for making sure speed is constant 
             pathLenght = splinePaths[0].GetLength();
 
-            if (isHuman == true)
-            {
-                animator = transform.GetChild(0).GetComponent<Animator>();
-            }
         }
+
+        if (isHuman == true)
+        {
+            animator = transform.GetChild(0).GetComponent<Animator>();
+        }
+
     }
 
 
@@ -182,6 +178,12 @@ public class MovingObject : MonoBehaviour
 
     private void Update()
     {
+
+        if (paths == null)
+        {
+            return;  // Nothing to do, we don't have a path to follow.
+        }
+
         // Slowly adapt the current speed to match the target.
         elapsedTimeSinceMovingObstacleEnter += Time.deltaTime;
         elapsedTimeSinceMovingObstacleExit += Time.deltaTime;
@@ -204,7 +206,8 @@ public class MovingObject : MonoBehaviour
             finalTargetSpeed = targetSpeed;
         }
 
-        if (isLongRangeObstacle) {  // Go at half speed if there's something far.
+        if (isLongRangeObstacle)
+        {  // Go at half speed if there's something far.
             finalTargetSpeed /= 2f;
         }
 
