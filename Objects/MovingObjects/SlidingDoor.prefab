@@ -449,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506360746384393407}
   m_Layer: 0
-  m_Name: Porte coulissante
+  m_Name: SlidingDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +603,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.4201165, z: 0.8830541}
+  m_Size: {x: 1, y: 0.93, z: 0.8830541}
   m_Center: {x: 0.015238685, y: 0.54371756, z: 0.06974469}
 --- !u!114 &2161848481378551623
 MonoBehaviour:

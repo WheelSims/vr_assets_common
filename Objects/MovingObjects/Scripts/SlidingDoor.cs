@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorController : MonoBehaviour
+public class SlidingDoor : MonoBehaviour
 {
     [SerializeField] private Transform LDoor; 
     [SerializeField] private Transform RDoor;
@@ -31,6 +31,7 @@ public class DoorController : MonoBehaviour
             CloseTheDoor();
         }
     }
+    
 
     private void CloseTheDoor(){
         LDoor.transform.position = Vector3.MoveTowards(LDoor.transform.position, LDoorClosedPosition, doorsSpeed * Time.deltaTime);
