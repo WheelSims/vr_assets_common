@@ -4,6 +4,7 @@ using UnityEngine.Splines;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using System.Numerics;
 
 /*
 Script Name: MovingObject
@@ -29,14 +30,13 @@ public class MovingObject : MonoBehaviour
 
     [Range(0, 20)][SerializeField] float maxSpeed;
 
-
+    private UnityEngine.Vector3 position;
+    private UnityEngine.Vector3 direction;
+    private SplinePath path;
     // object for animation on curve 
     [SerializeField] SplineContainer paths;
     [SerializeField] int splineIndex;
     [Range(0, 1)][SerializeField] float startingPoint;
-
-
-
 
     // basic curve parameter 
     private float pathLenght;
@@ -66,10 +66,95 @@ public class MovingObject : MonoBehaviour
     public float elapsedTimeSinceMovingObstacleExit = 0f;
 
 
-    // Collider logic
+
+
+
+
+    private UnityEngine.Vector3[] gizmoPositions;
+    // CheckSpheres check obstacles for the cars.
+    // Every Vector2 contains : x = distance, y = radius.
+    // The first one checks Fix Car Obstacles. 
+    // The second one checks MovingObjectCollider. 
+    // The third one checks all obstacles to slow.
+    UnityEngine.Vector2[] checkSpheres = {
+        new UnityEngine.Vector2(5f, 0.5f),
+        new UnityEngine.Vector2(5f, 1.5f),
+        new UnityEngine.Vector2(7f, 2f)
+    };
+
+    private void ObstacleOnPath()
+    {
+
+        isShortRangeObstacle = false;
+        isLongRangeObstacle = false;
+
+        gizmoPositions = new UnityEngine.Vector3[checkSpheres.Length];
+
+        for (int i = 0; i < checkSpheres.Length; i++)
+        {
+            float distance = checkSpheres[i].x;
+            float radius = checkSpheres[i].y;
+
+            float checkT = positionOnCurve + distance / pathLenght;
+            if (checkT > 1f) checkT -= 1f;
+
+            UnityEngine.Vector3 checkPoint = (UnityEngine.Vector3)splinePaths[0].EvaluatePosition(checkT) + new UnityEngine.Vector3(0, 1, 0);
+            gizmoPositions[i] = checkPoint;
+
+            Collider[] hitColliders = Physics.OverlapSphere(checkPoint, radius);
+
+            foreach (Collider collider in hitColliders)
+            {
+                bool tagMatch = false;
+
+                if (i == 0)
+                    tagMatch = collider.CompareTag("CarObstacle");
+                else if (i == 1)
+                    tagMatch = collider.CompareTag("MovingObjectCollider");
+                else if (i == 2)
+                    tagMatch = collider.CompareTag("MovingObjectCollider") || collider.CompareTag("CarObstacle");
+
+                if (tagMatch && collider.gameObject != gameObject)
+                {
+                    if (i == 0 || i == 1)
+                    {
+                        isShortRangeObstacle = true;
+                        elapsedTimeSinceMovingObstacleEnter = 0f;
+                    }
+                    else if (i == 2)
+                    {
+                        isLongRangeObstacle = true;
+                    }
+                }
+            }
+        }
+
+        // Détection de virage (à partir du dernier point)
+        UnityEngine.Vector3 lastTangent = splinePaths[0].EvaluateTangent(positionOnCurve + checkSpheres.Last().x / pathLenght);
+        float angle = UnityEngine.Vector3.Angle(lastTangent.normalized, direction.normalized);
+        bool turning = angle > 10f;
+
+        targetSpeed = turning ? Mathf.Min(maxSpeed, maxSpeed / 2f) : maxSpeed;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        if (gizmoPositions == null) return;
+
+        for (int i = 0; i < gizmoPositions.Length; i++)
+        {
+            Gizmos.DrawWireSphere(gizmoPositions[i], checkSpheres[i].y);
+        }
+    }
+
+
+    
+    // Collider logic. Only for pedestrians.
     public void OnFrontTriggerEnter(Collider collision)
     {
-        if (collision.tag == "MovingObjectCollider")
+        if (isCar)return;
+        if (collision.tag == "MovingObjectCollider" || collision.tag == "PedestrianObstacle")
         {
             isShortRangeObstacle = true;
             elapsedTimeSinceMovingObstacleEnter = 0f;
@@ -82,7 +167,8 @@ public class MovingObject : MonoBehaviour
 
     public void OnFrontTriggerExit(Collider collision)
     {
-        if (collision.tag == "MovingObjectCollider")
+        if (isCar)return;
+        if (collision.tag == "MovingObjectCollider" || collision.tag == "PedestrianObstacle")
         {
             isShortRangeObstacle = false;
             elapsedTimeSinceMovingObstacleExit = 0f;
@@ -91,7 +177,6 @@ public class MovingObject : MonoBehaviour
         {
             targetSpeed = maxSpeed;
         }
-
     }
 
     public void OnFarTriggerEnter(Collider collision)
@@ -144,14 +229,15 @@ public class MovingObject : MonoBehaviour
 
             //calculating the ratio of the curve for making sure speed is constant 
             pathLenght = splinePaths[0].GetLength();
-
+            path = splinePaths[0];
+            position = path.EvaluatePosition(positionOnCurve);
+            direction = path.EvaluateTangent(positionOnCurve);
         }
 
         if (isHuman == true)
         {
             animator = transform.GetChild(0).GetComponent<Animator>();
         }
-
     }
 
 
@@ -178,7 +264,8 @@ public class MovingObject : MonoBehaviour
 
     private void Update()
     {
-
+        if (isCar) ObstacleOnPath();
+        
         if (paths == null)
         {
             return;  // Nothing to do, we don't have a path to follow.
@@ -236,10 +323,10 @@ public class MovingObject : MonoBehaviour
         {
             positionOnCurve = 0f;
         }
-        var path = splinePaths[0];
-        var pos = path.EvaluatePosition(positionOnCurve);
-        var direction = path.EvaluateTangent(positionOnCurve);
-        transform.position = pos;
-        transform.LookAt(pos + direction);
+        path = splinePaths[0];
+        position = path.EvaluatePosition(positionOnCurve);
+        direction = path.EvaluateTangent(positionOnCurve);
+        transform.position = position;
+        transform.LookAt(position + direction);
     }
 }
