@@ -61,10 +61,11 @@ PrefabInstance:
     - target: {fileID: 7446304160755708152, guid: e6df994e88689c34390633dbb291c3a1,
         type: 3}
       propertyPath: m_Name
-      value: Human (1) Variant
+      value: HumanSuzie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3128402909260080635, guid: e6df994e88689c34390633dbb291c3a1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4835335630226611031, guid: e6df994e88689c34390633dbb291c3a1,
         type: 3}

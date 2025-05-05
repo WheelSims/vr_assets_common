@@ -61,15 +61,32 @@ PrefabInstance:
     - target: {fileID: 7446304160755708152, guid: e6df994e88689c34390633dbb291c3a1,
         type: 3}
       propertyPath: m_Name
-      value: Human Variant
+      value: HumanBrian
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408053971466436784, guid: e6df994e88689c34390633dbb291c3a1,
+        type: 3}
+      propertyPath: Triggers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408053971466436784, guid: e6df994e88689c34390633dbb291c3a1,
+        type: 3}
+      propertyPath: Triggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408053971466436784, guid: e6df994e88689c34390633dbb291c3a1,
+        type: 3}
+      propertyPath: Triggers.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1518109079368019576, guid: e6df994e88689c34390633dbb291c3a1, type: 3}
+    - {fileID: 3128402909260080635, guid: e6df994e88689c34390633dbb291c3a1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4835335630226611031, guid: e6df994e88689c34390633dbb291c3a1,
         type: 3}
       insertIndex: 0
-      addedObject: {fileID: 2713774929950051836}
+      addedObject: {fileID: 4268340977427244394}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6df994e88689c34390633dbb291c3a1, type: 3}
 --- !u!4 &6222005045287945060 stripped
@@ -78,7 +95,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1532227437820237875}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2460085347161598487
+--- !u!1001 &4374834705652384385
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -141,19 +158,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brian
       objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: fdc1975bd2e9f4c4b9527c4662f70fe0,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7ab1c765aa2644d728453ac0db62889c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdc1975bd2e9f4c4b9527c4662f70fe0, type: 3}
---- !u!4 &2713774929950051836 stripped
+--- !u!4 &4268340977427244394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fdc1975bd2e9f4c4b9527c4662f70fe0,
     type: 3}
-  m_PrefabInstance: {fileID: 2460085347161598487}
+  m_PrefabInstance: {fileID: 4374834705652384385}
   m_PrefabAsset: {fileID: 0}

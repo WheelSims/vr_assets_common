@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4918623132228718329, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -291,9 +291,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
-      propertyPath: carSpheresDebug
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: paths
+      value: 
+      objectReference: {fileID: 916286027}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -315,7 +315,7 @@ PrefabInstance:
     - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4918623132228718329, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -382,6 +382,11 @@ PrefabInstance:
       propertyPath: splines
       value: 
       objectReference: {fileID: 916286027}
+    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: splineIndex
@@ -488,7 +493,7 @@ PrefabInstance:
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: splineIndex
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -894,6 +899,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2363903474253406903, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: m_Name
@@ -977,7 +987,7 @@ PrefabInstance:
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: splineIndex
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -1001,6 +1011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4918623132228718329, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -1051,6 +1066,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: splineIndex
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1217,12 +1237,12 @@ PrefabInstance:
     - target: {fileID: 647016844490323194, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.92
+      value: 12.36
       objectReference: {fileID: 0}
     - target: {fileID: 831328560432316714, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: CarObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 899078625222031675, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1232,17 +1252,17 @@ PrefabInstance:
     - target: {fileID: 899078625222031675, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.52
+      value: 6.13
       objectReference: {fileID: 0}
     - target: {fileID: 1061007888488670398, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: PedestrianObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 1944461834675182468, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.75
+      value: -8.04
       objectReference: {fileID: 0}
     - target: {fileID: 1944461834675182468, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1272,7 +1292,7 @@ PrefabInstance:
     - target: {fileID: 2363603212907377150, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: PedestrianObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 2367543496762384148, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1292,7 +1312,7 @@ PrefabInstance:
     - target: {fileID: 2928844043806679118, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.5
+      value: -9.83
       objectReference: {fileID: 0}
     - target: {fileID: 2928844043806679118, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1302,12 +1322,12 @@ PrefabInstance:
     - target: {fileID: 3048174837663918746, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: CarObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 3107556223197034872, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: PedestrianObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 3583940568093947333, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1317,7 +1337,7 @@ PrefabInstance:
     - target: {fileID: 3658329515681146800, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: PedestrianObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 3665230381652291690, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1327,7 +1347,17 @@ PrefabInstance:
     - target: {fileID: 3665230381652291690, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.3
+      value: 0.16441151
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665230381652291690, guid: 8086c96bc9a47de438c365263c71ecaf,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -1.08323126e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665230381652291690, guid: 8086c96bc9a47de438c365263c71ecaf,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.067794256
       objectReference: {fileID: 0}
     - target: {fileID: 3694651113064337022, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1392,17 +1422,27 @@ PrefabInstance:
     - target: {fileID: 4958955601665776718, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.3
+      value: 0.15341972
       objectReference: {fileID: 0}
     - target: {fileID: 4958955601665776718, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_Center.y
       value: 0.14353627
       objectReference: {fileID: 0}
+    - target: {fileID: 4958955601665776718, guid: 8086c96bc9a47de438c365263c71ecaf,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.073290035
+      objectReference: {fileID: 0}
     - target: {fileID: 5049529327427484027, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_Name
       value: SingleLaneFourCornerTrafficLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049529327427484027, guid: 8086c96bc9a47de438c365263c71ecaf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5282445477130146868, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1422,7 +1462,7 @@ PrefabInstance:
     - target: {fileID: 5640689546456459712, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: CarObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 5721533215677749555, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1437,12 +1477,12 @@ PrefabInstance:
     - target: {fileID: 6075762197792676422, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: PedestrianObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 6395665359618493311, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: PedestrianObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 6485933265358460666, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1452,12 +1492,12 @@ PrefabInstance:
     - target: {fileID: 6485933265358460666, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.65
+      value: 13.77
       objectReference: {fileID: 0}
     - target: {fileID: 6647724924953659070, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: CarObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 6859725599383040878, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1487,7 +1527,17 @@ PrefabInstance:
     - target: {fileID: 7283884026391279614, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.3
+      value: 0.1930305
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283884026391279614, guid: 8086c96bc9a47de438c365263c71ecaf,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 7.255803e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283884026391279614, guid: 8086c96bc9a47de438c365263c71ecaf,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.053484768
       objectReference: {fileID: 0}
     - target: {fileID: 7385661163777152500, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1497,12 +1547,12 @@ PrefabInstance:
     - target: {fileID: 7385661163777152500, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.73
+      value: 6.16
       objectReference: {fileID: 0}
     - target: {fileID: 7493379971845864506, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: PedestrianObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 8392150472391476154, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1512,17 +1562,17 @@ PrefabInstance:
     - target: {fileID: 8392150472391476154, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.65
+      value: 13.84
       objectReference: {fileID: 0}
     - target: {fileID: 8943732001811730954, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_TagString
-      value: PedestrianObstacle
+      value: StaticObjectCollider
       objectReference: {fileID: 0}
     - target: {fileID: 9148664757969508574, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.22
+      value: -3.73
       objectReference: {fileID: 0}
     - target: {fileID: 9148664757969508574, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1587,7 +1637,7 @@ PrefabInstance:
     - target: {fileID: 9195115785861925692, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2
+      value: -2.09
       objectReference: {fileID: 0}
     - target: {fileID: 9195115785861925692, guid: 8086c96bc9a47de438c365263c71ecaf,
         type: 3}
@@ -1648,21 +1698,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumanMegan (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5060020983719040134, guid: e7f51542e201f42419221705637580a6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6179273911223592142, guid: e7f51542e201f42419221705637580a6,
         type: 3}
       propertyPath: paths
       value: 
       objectReference: {fileID: 1014221768}
-    - target: {fileID: 6179273911223592142, guid: e7f51542e201f42419221705637580a6,
-        type: 3}
-      propertyPath: startingPoint
-      value: 0.473
-      objectReference: {fileID: 0}
     - target: {fileID: 7094515537676451625, guid: e7f51542e201f42419221705637580a6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5418,9 +5458,9 @@ MonoBehaviour:
         z: 0.97076255
       Rotation:
         value:
-          x: 0.030012263
+          x: 0.03001226
           y: -0.69761777
-          z: 0.009034525
+          z: 0.009034526
           w: 0.71578425
     - Position:
         x: -34.198296
@@ -8627,6 +8667,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4918623132228718329, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8783,7 +8828,7 @@ PrefabInstance:
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: startingPoint
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8915,7 +8960,7 @@ PrefabInstance:
     - target: {fileID: 4281149301564531292, guid: 663a0541998ce42d6b66e2678968ed37,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9051,12 +9096,22 @@ PrefabInstance:
     - target: {fileID: 6179273911223592142, guid: e7f51542e201f42419221705637580a6,
         type: 3}
       propertyPath: splineIndex
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6179273911223592142, guid: e7f51542e201f42419221705637580a6,
         type: 3}
       propertyPath: startingPoint
-      value: 0.384
+      value: 0.301
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179273911223592142, guid: e7f51542e201f42419221705637580a6,
+        type: 3}
+      propertyPath: positionOnCurve
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179273911223592142, guid: e7f51542e201f42419221705637580a6,
+        type: 3}
+      propertyPath: isLongRangeObstacle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7094515537676451625, guid: e7f51542e201f42419221705637580a6,
         type: 3}
@@ -9189,7 +9244,7 @@ PrefabInstance:
     - target: {fileID: 8220483919057430731, guid: 4adf878bfc95c4516ba33aec2e8e17b5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9208,6 +9263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4918623132228718329, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -9259,6 +9319,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: splineIndex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9280,7 +9345,7 @@ PrefabInstance:
     - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4918623132228718329, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -9355,7 +9420,7 @@ PrefabInstance:
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: splineIndex
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -9383,7 +9448,7 @@ PrefabInstance:
     - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4918623132228718329, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
@@ -9440,31 +9505,6 @@ PrefabInstance:
       propertyPath: paths
       value: 
       objectReference: {fileID: 916286027}
-    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
-        type: 3}
-      propertyPath: splineA
-      value: 
-      objectReference: {fileID: 916286027}
-    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
-        type: 3}
-      propertyPath: splines
-      value: 
-      objectReference: {fileID: 916286027}
-    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
-        type: 3}
-      propertyPath: splineIndex
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
-        type: 3}
-      propertyPath: splinePathInt
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
-        type: 3}
-      propertyPath: startingPoint
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9586,21 +9626,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumanMegan
       objectReference: {fileID: 0}
-    - target: {fileID: 5060020983719040134, guid: e7f51542e201f42419221705637580a6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6179273911223592142, guid: e7f51542e201f42419221705637580a6,
         type: 3}
       propertyPath: paths
       value: 
       objectReference: {fileID: 1014221768}
-    - target: {fileID: 6179273911223592142, guid: e7f51542e201f42419221705637580a6,
-        type: 3}
-      propertyPath: startingPoint
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7094515537676451625, guid: e7f51542e201f42419221705637580a6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9614,7 +9644,7 @@ PrefabInstance:
     - target: {fileID: 7094515537676451625, guid: e7f51542e201f42419221705637580a6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -85.8698
+      value: -88.298
       objectReference: {fileID: 0}
     - target: {fileID: 7094515537676451625, guid: e7f51542e201f42419221705637580a6,
         type: 3}
@@ -9672,7 +9702,7 @@ PrefabInstance:
     - target: {fileID: 537180320312901634, guid: 70b1f6e5d6234496c9d726a7585dc011,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1480993797631275082, guid: 70b1f6e5d6234496c9d726a7585dc011,
         type: 3}
@@ -9840,6 +9870,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2745319981282438089, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4918623132228718329, guid: 2e3176f2b356c274981ce168c0532aba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9889,6 +9924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817576251872203212, guid: 2e3176f2b356c274981ce168c0532aba,
+        type: 3}
+      propertyPath: splineIndex
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
