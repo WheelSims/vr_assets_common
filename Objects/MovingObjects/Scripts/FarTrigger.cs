@@ -6,7 +6,6 @@ public class FarColliderTrigger : MonoBehaviour
 {
     MovingObject parentScript;
 
-    // Start is called before the first frame update
     void Start()
     {
         parentScript = transform.parent.parent.GetComponent<MovingObject>();
