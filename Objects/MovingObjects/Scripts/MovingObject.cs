@@ -47,7 +47,7 @@ public class MovingObject : MonoBehaviour
     // Parameter used to modify animation of an avatar 
     private Animator animator;
     private float targetSpeed;
-    private float currentSpeed = 0f;
+    public float currentSpeed = 0f;
     public bool isShortRangeObstacle = false;
     public bool isLongRangeObstacle = false;
     private float finalTargetSpeed;
@@ -76,7 +76,7 @@ public class MovingObject : MonoBehaviour
                 break;
             }
             float checkT;
-            if (currentSpeed < 1){
+            if (currentSpeed < 1 || isHuman){
                 checkT = positionOnCurve + triggerDistanceFromEntity[i] / pathLenght;
             }else
             {
@@ -203,13 +203,14 @@ public class MovingObject : MonoBehaviour
         {
             animator.SetInteger("Anim", -1);
         }
-        else if (currentSpeed <= 0f)  // Idle
+        else if (currentSpeed <= 0.5f)  // Idle
         {
             animator.SetInteger("Anim", 0);
         }
         else if (currentSpeed < 2f)  // Walk
         {
             animator.SetInteger("Anim", 1);
+            animator.SetFloat("AnimMult", currentSpeed * 2/3);
         }
         else  // Run
         {

@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 5857538937131863399}
   - component: {fileID: 7817576251872203212}
   - component: {fileID: 5584587846727439416}
+  - component: {fileID: 7631017861411674192}
   m_Layer: 3
   m_Name: Car
   m_TagString: MovingObjectCollider
@@ -297,6 +298,7 @@ MonoBehaviour:
   splineIndex: 0
   startingPoint: 0.2
   positionOnCurve: 0
+  currentSpeed: 0
   isShortRangeObstacle: 0
   isLongRangeObstacle: 0
   waitTimeAfterIdle: 0.5
@@ -328,6 +330,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.12883, y: 1.5743667, z: 5.005966}
   m_Center: {x: 0, y: 0.81153566, z: 2.0134354}
+--- !u!114 &7631017861411674192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745319981282438089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e93779dba7bc734896a043739f3e347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FLWheel: {fileID: 5605841862380315714}
+  FRWheel: {fileID: 8039884437875780754}
+  BLWheel: {fileID: 5553526644058714272}
+  BRWheel: {fileID: 1566532168080598510}
+  movingObjectScript: {fileID: 7817576251872203212}
+  wheelRadium: 1
 --- !u!1 &3207635277860490707
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +581,30 @@ PrefabInstance:
 --- !u!4 &972963593043545290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff735ef89d7f5c4ba1d3dd6edd94e26,
+    type: 3}
+  m_PrefabInstance: {fileID: 723408586738428705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1566532168080598510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2285401928943292111, guid: 6ff735ef89d7f5c4ba1d3dd6edd94e26,
+    type: 3}
+  m_PrefabInstance: {fileID: 723408586738428705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5553526644058714272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5122852590371707777, guid: 6ff735ef89d7f5c4ba1d3dd6edd94e26,
+    type: 3}
+  m_PrefabInstance: {fileID: 723408586738428705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5605841862380315714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5170663710849732451, guid: 6ff735ef89d7f5c4ba1d3dd6edd94e26,
+    type: 3}
+  m_PrefabInstance: {fileID: 723408586738428705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8039884437875780754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7321014655537907635, guid: 6ff735ef89d7f5c4ba1d3dd6edd94e26,
     type: 3}
   m_PrefabInstance: {fileID: 723408586738428705}
   m_PrefabAsset: {fileID: 0}
