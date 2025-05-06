@@ -89,8 +89,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   splineIndex: 0
   startingPoint: 0
   positionOnCurve: 0
+  currentSpeed: 0
   isShortRangeObstacle: 0
   isLongRangeObstacle: 0
   waitTimeAfterIdle: 0.5
@@ -207,6 +208,7 @@ MonoBehaviour:
   Triggers:
   - {fileID: 1809064832310413102}
   - {fileID: 9052121572268805791}
+  frontWheelDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &8433304622474801838
 GameObject:
   m_ObjectHideFlags: 0
