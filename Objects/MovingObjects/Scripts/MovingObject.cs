@@ -69,6 +69,10 @@ public class MovingObject : MonoBehaviour
     private int currentObstacleCounter;
     private int currentFarObstacleCounter;
 
+    // used to slow cars when they turn.
+    private Vector3 lastTangent;
+    public Vector3 frontWheelDirection;
+
     private void TriggersMovement()
     {
         for (int i = 0; i < Triggers.Length; i++){
@@ -287,8 +291,9 @@ public class MovingObject : MonoBehaviour
 
 
         // Détection de virage (à partir du dernier point)
-        if (isCar){    
-            Vector3 lastTangent = splinePaths[0].EvaluateTangent(positionOnCurve +  7 / pathLenght);
+        if (isCar){   
+            frontWheelDirection = splinePaths[0].EvaluateTangent(positionOnCurve  + 1.5f / pathLenght);
+            lastTangent = splinePaths[0].EvaluateTangent(positionOnCurve +  7 / pathLenght);
             float angle = Vector3.Angle(lastTangent.normalized, direction.normalized);
             bool turning = angle > 10f;
 
