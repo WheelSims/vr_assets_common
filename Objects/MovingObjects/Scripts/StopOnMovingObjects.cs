@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseTrigger : MonoBehaviour
+public class StopOnMovingObjects : MonoBehaviour
 {
     MovingObject parentScript;
 
@@ -14,12 +14,12 @@ public class CloseTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        parentScript.OnCloseTriggerEnter(collision);
+        parentScript.OnFrontTriggerEnter(collision);
     }
 
     void OnTriggerExit(Collider collision)
     {
-        parentScript.OnCloseTriggerExit(collision);
+        parentScript.OnFrontTriggerExit(collision);
     }
 
 }

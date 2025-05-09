@@ -64,8 +64,10 @@ public class MovingObject : MonoBehaviour
 
 
     [Header("Trigger Colliders")]
-    [SerializeField] private GameObject[] Triggers;
-    private List<float> triggerDistanceFromEntity;
+    [SerializeField] private GameObject[] TriggersOnCurve;
+    [SerializeField] private GameObject[] TriggersInFront;
+    private List<float> triggerOnCurveDistanceFromEntity;
+    private List<float> triggerInFrontDistanceFromEntity;
     private int currentObstacleCounter;
     private int currentFarObstacleCounter;
 
@@ -73,23 +75,37 @@ public class MovingObject : MonoBehaviour
     private Vector3 lastTangent;
     public Vector3 frontWheelDirection;
 
-    private void TriggersMovement()
+    private void TriggersMovementOnCurve()
     {
-        for (int i = 0; i < Triggers.Length; i++){
+        for (int i = 0; i < TriggersOnCurve.Length; i++){
             if (pathLenght == 0){
                 break;
             }
             float checkT;
             if (currentSpeed < 1 || isHuman){
-                checkT = positionOnCurve + triggerDistanceFromEntity[i] / pathLenght;
+                checkT = positionOnCurve + triggerOnCurveDistanceFromEntity[i] / pathLenght;
             }else
             {
-                checkT = positionOnCurve + (triggerDistanceFromEntity[i] + currentSpeed / 5)/ pathLenght;
+                checkT = positionOnCurve + (triggerOnCurveDistanceFromEntity[i] + currentSpeed / 5)/ pathLenght;
             }
             
             if (checkT > 1f) checkT -= 1f;
             Vector3 checkPoint = (Vector3)splinePaths[0].EvaluatePosition(checkT);
-            Triggers[i].transform.position = checkPoint;
+            TriggersOnCurve[i].transform.position = checkPoint;
+        }
+    }
+
+    private void TriggersMovementInFront(){
+        for (int i = 0; i < TriggersInFront.Length; i++){
+            float triggerDistance;
+            if (currentSpeed < 1 || isHuman){
+                triggerDistance =  triggerInFrontDistanceFromEntity[i];
+            }else
+            {
+                triggerDistance = triggerInFrontDistanceFromEntity[i] + currentSpeed / 3;
+            }
+            
+            TriggersInFront[i].transform.position = transform.position + transform.forward * triggerDistance;
         }
     }
 
@@ -151,11 +167,17 @@ public class MovingObject : MonoBehaviour
     {
         currentFarObstacleCounter = 0;
         currentObstacleCounter = 0;
-        triggerDistanceFromEntity = new List<float>();
-        float distance;
-        foreach(GameObject trigger in Triggers){
-            distance = trigger.transform.localPosition.z;
-            triggerDistanceFromEntity.Add(distance);
+        triggerOnCurveDistanceFromEntity = new List<float>();
+        triggerInFrontDistanceFromEntity = new List<float>();
+        float distance1;
+        float distance2;
+        foreach(GameObject trigger in TriggersOnCurve){
+            distance1 = trigger.transform.localPosition.z;
+            triggerOnCurveDistanceFromEntity.Add(distance1);
+        }
+        foreach(GameObject trigger in TriggersInFront){
+            distance2 = trigger.transform.localPosition.z;
+            triggerInFrontDistanceFromEntity.Add(distance2);
         }
         targetSpeed = maxSpeed;
         if (paths != null)  // A path is assigned to it, calculated the trajectory.
@@ -225,7 +247,8 @@ public class MovingObject : MonoBehaviour
 
     private void Update()
     {
-        TriggersMovement();
+        TriggersMovementOnCurve();
+        TriggersMovementInFront();
 
         if (currentObstacleCounter > 0){
             isShortRangeObstacle = true;
